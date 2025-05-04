@@ -74,3 +74,97 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order - Smart Water Bottle</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+    }
+    .order-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .product-details {
+      display: flex;
+      gap: 2rem;
+    }
+    .product-details img {
+      max-width: 200px;
+      border-radius: 8px;
+    }
+    .product-info h2 {
+      margin-bottom: 0.5rem;
+    }
+    .price {
+      font-size: 1.5rem;
+      color: #f76c6c;
+      margin-bottom: 1rem;
+    }
+    .quantity {
+      margin: 1rem 0;
+    }
+    .quantity input {
+      width: 60px;
+      padding: 0.5rem;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+    .checkout-btn {
+      background-color: #f76c6c;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .checkout-btn:hover {
+      background-color: #d65b5b;
+    }
+  </style>
+</head>
+<body>
+  <div class="order-container">
+    <h1>Order Your Smart Reusable Water Bottle</h1>
+    <div class="product-details">
+      <img src="https://via.placeholder.com/300" alt="Smart Water Bottle">
+      <div class="product-info">
+        <h2>Smart Reusable Water Bottle</h2>
+        <p>Stay hydrated and monitor your intake with our advanced smart bottle. Includes UV sterilization and app syncing.</p>
+        <p class="price">$60.00</p>
+        <div class="quantity">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" value="1" min="1">
+        </div>
+        <p class="total">Total: $60.00</p>
+        <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const pricePerUnit = 60;
+    const quantityInput = document.getElementById('quantity');
+    const totalDisplay = document.querySelector('.total');
+
+    quantityInput.addEventListener('input', () => {
+      const qty = parseInt(quantityInput.value) || 1;
+      const total = qty * pricePerUnit;
+
